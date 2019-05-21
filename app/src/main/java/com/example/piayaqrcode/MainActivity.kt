@@ -35,8 +35,6 @@ class MainActivity : AppCompatActivity() {
             } else {
                 alert("Scan cancelado")
             }
-        } else {
-            super.onActivityResult(requestCode, resultCode, data)
         }
     }
 
