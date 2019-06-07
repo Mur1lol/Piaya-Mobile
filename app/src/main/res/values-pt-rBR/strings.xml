@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Piaya</string>
+    <string name="descarte">Descarte incorreto de lixo/residuos</string>
+    <string name="usoLuz">Uso inadequado da luz</string>
+    <string name="problema">Problemas relacionados à água</string>
+    <string name="outro">Outros...</string>
+    <string name="tipo">Qual o tipo da ocorrência?</string>
+</resources>

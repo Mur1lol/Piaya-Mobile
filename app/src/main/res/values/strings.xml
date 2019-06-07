@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Piaya QRCode</string>
+    <string name="app_name">Piaya</string>
+    <string name="descarte">"Incorrect trash / waste disposal "</string>
+    <string name="usoLuz">Improper use of light</string>
+    <string name="problema">Problems related to water</string>
+    <string name="outro">Others...</string>
+    <string name="tipo">What type of occurrence?</string>
 </resources>
