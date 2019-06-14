@@ -5,4 +5,22 @@
     <string name="problema">Problems related to water</string>
     <string name="outro">Others...</string>
     <string name="tipo">What type of occurrence?</string>
+    <string name="tipoLixo">What kind of waste was disposed of incorrectly?</string>
+    <string name="papel">Paper</string>
+    <string name="reciclavel">Recyclable</string>
+    <string name="comum">Common</string>
+    <string name="infectante">Infectant</string>
+    <string name="quimico">Chemical</string>
+    <string name="perfurocortante">ARRUMAR DEPOIS</string>
+    <string name="lixeira">In which trash was this waste disposed of incorrectly?</string>
+    <string name="naoReciclavel">Non-recyclable</string>
+    <string name="entupimento">Clogging</string>
+    <string name="torneira">Open tap</string>
+    <string name="luzAcesa">Light on in empty environment</string>
+    <string name="arCondicionado">Air conditioning connected in empty room</string>
+    <string name="infoAdicional">Additional Information</string>
+    <string name="obs">If necessary, write down observations</string>
+    <string name="digiteAqui">Type here...</string>
+    <string name="lugar">Place</string>
+    <string name="qr">QR CODE Reader</string>
 </resources>

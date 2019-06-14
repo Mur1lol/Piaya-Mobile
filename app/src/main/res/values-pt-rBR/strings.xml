@@ -6,4 +6,22 @@
     <string name="problema">Problemas relacionados à água</string>
     <string name="outro">Outros...</string>
     <string name="tipo">Qual o tipo da ocorrência?</string>
+    <string name="tipoLixo">Qual tipo de resíduo foi descartado de maneira incorreta?</string>
+    <string name="papel">Papel</string>
+    <string name="reciclavel">Reciclável</string>
+    <string name="comum">Comum</string>
+    <string name="infectante">Infectante</string>
+    <string name="quimico">Químico</string>
+    <string name="perfurocortante">Perfurocortante</string>
+    <string name="lixeira">Em qual lixeira este resíduo foi descartado incorretamente?</string>
+    <string name="naoReciclavel">Não reciclável</string>
+    <string name="entupimento">Entupimento</string>
+    <string name="torneira">Torneira aberta</string>
+    <string name="luzAcesa">Luz acesa em ambiente vazio</string>
+    <string name="arCondicionado">Ar condicionado ligado em sala vazia</string>
+    <string name="infoAdicional">Informações Adicionais</string>
+    <string name="obs">Se achar necessário, escrever observações sobre o ocorrido</string>
+    <string name="digiteAqui">Digite aqui...</string>
+    <string name="lugar">Lugar</string>
+    <string name="qr">Leitor QR CODE</string>
 </resources>

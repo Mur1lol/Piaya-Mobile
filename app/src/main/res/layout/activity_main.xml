@@ -7,20 +7,8 @@
         android:layout_height="match_parent"
         tools:context=".app.MainActivity">
 
-    <Button
-            android:text="Ler QR Code"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" android:id="@+id/btnScan"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginBottom="8dp" android:textColor="@android:color/black" android:gravity="center"
-            android:layout_marginLeft="8dp" android:layout_marginRight="8dp"
-            android:background="@android:color/holo_orange_light"
-            app:layout_constraintHorizontal_bias="0.0"
-    />
     <TextView
-            android:text="LOCAL"
+            android:text="@string/lugar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/local" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
@@ -45,5 +33,17 @@
             android:layout_marginRight="8dp" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/txtLocal" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/btnScan"/>
+    <Button
+            android:text="@string/qr"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/btnScan"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="8dp" android:textColor="@android:color/black" android:gravity="center"
+            android:layout_marginLeft="8dp" android:layout_marginRight="8dp"
+            android:background="@drawable/border_button_orange"
+            app:layout_constraintHorizontal_bias="0.0"
+    />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
