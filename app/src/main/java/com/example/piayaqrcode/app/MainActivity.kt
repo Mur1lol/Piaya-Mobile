@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.piayaqrcode.TipoFragment
-import com.example.piayaqrcode.Info_LuzFragment
+import com.example.piayaqrcode.fragments.TipoFragment
+import com.example.piayaqrcode.fragments.Info_LuzFragment
 import com.example.piayaqrcode.R
 import com.example.piayaqrcode.entidades.FormularioResponse
 import com.example.piayaqrcode.servicos.FormularioService
@@ -34,28 +34,37 @@ class MainActivity : AppCompatActivity() {
         configuraRetrofit()
         cadastraResposta()
 
-        if(savedInstanceState == null) {
+//        if(savedInstanceState == null) {
+//            supportFragmentManager
+//                .beginTransaction()
+//                .replace(R.id.framezz, TipoFragment())
+//                .commit()
+//        }
+
+        framezz.setOnClickListener {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.framezz, TipoFragment())
+                .commit()
+
+            framezz.isClickable = false
+        }
+
+        btAnterior.setOnClickListener {
             supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.framezz, TipoFragment())
                 .commit()
         }
 
-        btFRag1.setOnClickListener {
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.framezz, TipoFragment())
-                .commit()
-        }
-
-        btFRag2.setOnClickListener {
+        btProximo.setOnClickListener {
             supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.framezz, Info_LuzFragment())
                 .commit()
         }
 
-        btnScan.setOnClickListener {
+        btScan.setOnClickListener {
             val intentIntegrator = IntentIntegrator(activity)
             intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES)
             intentIntegrator.setPrompt("SCAN")
