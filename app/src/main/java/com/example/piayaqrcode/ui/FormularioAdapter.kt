@@ -27,6 +27,10 @@ class FormularioAdapter(private var formularios: List<Formulario>):
 
     inner class FormularioViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun preencherView(formulario: Formulario) {
+            formulario.tipo
+            formulario.local
+            formulario.info
+            formulario.acontecimento
 
             Log.e("Murilo", ":/")
         }

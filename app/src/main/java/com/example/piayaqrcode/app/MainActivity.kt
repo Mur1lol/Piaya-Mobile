@@ -1,28 +1,29 @@
 package com.example.piayaqrcode.app
 
-import androidx.appcompat.app.AppCompatActivity
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.piayaqrcode.TipoFragment
+import com.example.piayaqrcode.Info_LuzFragment
+import com.example.piayaqrcode.R
+import com.example.piayaqrcode.entidades.FormularioResponse
+import com.example.piayaqrcode.servicos.FormularioService
 import com.google.zxing.integration.android.IntentIntegrator
 import kotlinx.android.synthetic.main.activity_main.*
-import android.app.Activity
-import android.widget.Toast
-import android.content.Intent
-import android.util.Log
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import androidx.room.Room
-import com.example.piayaqrcode.R
-import com.example.piayaqrcode.bd.AppDatabase
-import com.example.piayaqrcode.bd.dao.FormularioDao
-import com.example.piayaqrcode.entidades.Formulario
-import com.example.piayaqrcode.ui.FormularioAdapter
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var db: AppDatabase
-    lateinit var formularioDao: FormularioDao
-    lateinit var adapter: FormularioAdapter
+    lateinit var retrofit: Retrofit
+    lateinit var service: FormularioService
 
     private val activity: Activity = this
 
@@ -30,16 +31,29 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        db = Room.databaseBuilder(
-            applicationContext,
-            AppDatabase::class.java,
-            "formulario"
-        )
-            .allowMainThreadQueries()
-            .addMigrations()
-            .build()
-        formularioDao = db.formularioDao()
+        configuraRetrofit()
+        cadastraResposta()
 
+        if(savedInstanceState == null) {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.framezz, TipoFragment())
+                .commit()
+        }
+
+        btFRag1.setOnClickListener {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.framezz, TipoFragment())
+                .commit()
+        }
+
+        btFRag2.setOnClickListener {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(R.id.framezz, Info_LuzFragment())
+                .commit()
+        }
 
         btnScan.setOnClickListener {
             val intentIntegrator = IntentIntegrator(activity)
@@ -48,21 +62,31 @@ class MainActivity : AppCompatActivity() {
             intentIntegrator.setCameraId(0)
             intentIntegrator.initiateScan()
         }
-
-        configuraRecyclerView()
-        atualizaLista()
     }
 
-    fun atualizaLista() {
-        val tarefas = formularioDao.buscaTodas()
-        adapter = FormularioAdapter(tarefas.toList())
-        listFormulario.adapter = adapter
+    fun configuraRetrofit() {
+
+        //https://localhost:44375/api/Formularios
+        retrofit = Retrofit.Builder()
+            .baseUrl("https://localhost:44375/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+        service = retrofit.create(FormularioService::class.java)
     }
 
-    fun configuraRecyclerView(formulario: List<Formulario>) {
-        adapter = FormularioAdapter(formulario)
-        listFormulario.adapter = adapter
-        listFormulario.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
+    fun cadastraResposta() {
+        service.getFormulario("1","1","12","").enqueue(object: Callback<FormularioResponse> {
+            override fun onFailure(call: Call<FormularioResponse>, t: Throwable) {
+                Log.e("ERRO", ""+t)
+            }
+
+            override fun onResponse(call: Call<FormularioResponse>, response: Response<FormularioResponse>) {
+                val articles = response.body()
+                Log.e("FUCK", "YEAH")
+
+                Log.e("MENSAGEM", articles?.msg)
+            }
+        })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
