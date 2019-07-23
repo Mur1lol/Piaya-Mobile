@@ -5,50 +5,62 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".app.MainActivity">
+        tools:context=".app.MainActivity" android:background="#FFEE56">
 
     <TextView
             android:text="@string/lugar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/local" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
-            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp" android:layout_marginTop="16dp" app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/local" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
             android:textColor="@android:color/black" android:textStyle="bold" android:textSize="24sp"
             android:gravity="center"/>
     <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/txtLocal" android:textColor="@android:color/black"
-            android:textSize="18sp" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/local"
-            android:layout_marginStart="24dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="24dp" android:layout_marginEnd="24dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginRight="24dp" android:gravity="center"/>
+            android:textSize="24sp"
+            android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginRight="16dp" android:gravity="center" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toEndOf="@+id/local"
+            android:layout_marginStart="16dp" android:layout_marginLeft="16dp"/>
     <FrameLayout
             android:layout_width="0dp"
-            android:layout_height="227dp"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
             android:layout_marginRight="16dp"
             android:id="@+id/framezz"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintTop_toBottomOf="@+id/txtLocal" android:layout_marginTop="24dp">
+            app:layout_constraintTop_toBottomOf="@+id/txtLocal" android:layout_marginTop="16dp">
 
     </FrameLayout>
     <Button
-            android:text="Anterior"
+            android:text="TELA 1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btAnterior" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
+            android:id="@+id/bt1" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="16dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/framezz"/>
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/framezz"
+            android:background="@drawable/border_button"/>
     <Button
-            android:text="Proximo"
+            android:text="TELA 2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/bt2"
+            app:layout_constraintTop_toBottomOf="@+id/framezz" app:layout_constraintStart_toEndOf="@+id/bt1"
+            android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/bt3" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp" android:layout_marginTop="8dp"
+            android:background="@drawable/border_button"/>
+    <Button
+            android:text="TELA 3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btProximo" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="28dp"
+            android:id="@+id/bt3" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="28dp"
             android:layout_marginRight="28dp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/framezz"/>
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/framezz"
+            android:background="@drawable/border_button"/>
     <Button
             android:text="@string/qr"
             android:layout_width="0dp"
@@ -58,7 +70,7 @@
             app:layout_constraintRight_toRightOf="parent"
             android:layout_marginBottom="8dp" android:textColor="@android:color/black" android:gravity="center"
             android:layout_marginLeft="50dp" android:layout_marginRight="50dp"
-            android:background="@drawable/border_button_amarelo"
+            android:background="@drawable/border_button"
             app:layout_constraintHorizontal_bias="0.0"
     />
 

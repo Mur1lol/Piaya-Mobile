@@ -31,17 +31,17 @@
                     android:text="@string/luzAcesa"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/radioAcesa" android:layout_weight="1"
-                    android:layout_margin="5dp" android:background="@drawable/border_button" android:checked="true"/>
+                    android:layout_margin="1dp" android:background="@drawable/border_button" android:checked="false"/>
             <RadioButton
                     android:text="@string/arCondicionado"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/radioAr" android:layout_weight="1"
-                    android:layout_margin="5dp" android:background="@drawable/border_button"/>
+                    android:layout_margin="1dp" android:background="@drawable/border_button"/>
             <RadioButton
                     android:text="@string/outro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/radioOutroLuz" android:layout_weight="1"
-                    android:layout_margin="5dp" android:background="@drawable/border_button"/>
+                    android:layout_margin="1dp" android:background="@drawable/border_button"/>
         </RadioGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

@@ -2,8 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.piayaqrcode">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- To access Google+ APIs: -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
             android:allowBackup="true"
@@ -12,7 +13,9 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".app.MainActivity" android:screenOrientation="portrait">
+        <activity
+                android:name=".app.MainActivity"
+                android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

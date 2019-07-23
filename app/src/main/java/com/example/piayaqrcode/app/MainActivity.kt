@@ -1,15 +1,15 @@
 package com.example.piayaqrcode.app
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.piayaqrcode.fragments.TipoFragment
-import com.example.piayaqrcode.fragments.Info_LuzFragment
 import com.example.piayaqrcode.R
 import com.example.piayaqrcode.entidades.FormularioResponse
+import com.example.piayaqrcode.fragments.*
 import com.example.piayaqrcode.servicos.FormularioService
 import com.google.zxing.integration.android.IntentIntegrator
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,37 +31,53 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        configuraRetrofit()
-        cadastraResposta()
+        val prefsTipo = getSharedPreferences("tipo", Context.MODE_PRIVATE)
+        val tipos = prefsTipo.getString("tipo", null)
 
-//        if(savedInstanceState == null) {
-//            supportFragmentManager
-//                .beginTransaction()
-//                .replace(R.id.framezz, TipoFragment())
-//                .commit()
+        val prefsInfo = getSharedPreferences("info", Context.MODE_PRIVATE)
+        val infos = prefsInfo.getString("info", null)
+
+//        configuraRetrofit()
+//        cadastraResposta()
+
+
+        if(savedInstanceState == null) {
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.framezz, TipoFragment())
+                .commit()
+        }
+
+//        when (tipos) {
+//            "Lixo" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Info_LixoFragment()).commit()
+//            "Luz" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Info_LuzFragment()).commit()
+//            "Agua" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Info_AguaFragment()).commit()
+//            "Outro" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, AcontecimentoFragment()).commit()
+//        }
+//
+//        if (tipos!= null && infos!=null) {
+//            supportFragmentManager.beginTransaction().replace(R.id.framezz, AcontecimentoFragment()).commit()
 //        }
 
-        framezz.setOnClickListener {
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.framezz, TipoFragment())
-                .commit()
-
-            framezz.isClickable = false
-        }
-
-        btAnterior.setOnClickListener {
+        bt1.setOnClickListener {
             supportFragmentManager
                 .beginTransaction()
                 .replace(R.id.framezz, TipoFragment())
                 .commit()
         }
 
-        btProximo.setOnClickListener {
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.framezz, Info_LuzFragment())
-                .commit()
+        bt2.setOnClickListener {
+            val tipos = prefsTipo.getString("tipo", null)
+            when (tipos) {
+                "Lixo" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Info_LixoFragment()).commit()
+                "Luz" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Info_LuzFragment()).commit()
+                "Agua" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Info_AguaFragment()).commit()
+                "Outro" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, AcontecimentoFragment()).commit()
+            }
+        }
+
+        bt3.setOnClickListener {
+            supportFragmentManager.beginTransaction().replace(R.id.framezz, AcontecimentoFragment()).commit()
         }
 
         btScan.setOnClickListener {

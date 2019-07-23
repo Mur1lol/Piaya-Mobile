@@ -4,7 +4,7 @@
                                    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                                    android:layout_height="wrap_content" app:cardCornerRadius="25dp"
                                    android:layout_margin="5dp"
-                                   app:cardBackgroundColor="#FFEE56">
+                                   app:cardBackgroundColor="#FFEE56" app:cardElevation="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -35,24 +35,24 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/descarte"
-                    android:checked="true" android:layout_margin="5dp" android:background="@drawable/border_button"/>
+                    android:checked="false" android:layout_margin="1dp" android:background="@drawable/border_button"/>
 
             <RadioButton
                     android:id="@+id/radioLuz"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/usoLuz" android:layout_margin="5dp"
+                    android:text="@string/usoLuz" android:layout_margin="1dp"
                     android:background="@drawable/border_button"/>
             <RadioButton
                     android:text="@string/problema"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/radioAgua" android:layout_weight="1"
-                    android:layout_margin="5dp" android:background="@drawable/border_button"/>
+                    android:layout_margin="1dp" android:background="@drawable/border_button"/>
             <RadioButton
                     android:text="@string/outro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/radioOutro" android:layout_weight="1"
-                    android:layout_margin="5dp" android:background="@drawable/border_button"/>
+                    android:layout_margin="1dp" android:background="@drawable/border_button"/>
 
         </RadioGroup>
 
