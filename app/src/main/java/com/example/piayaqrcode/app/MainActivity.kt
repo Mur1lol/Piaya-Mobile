@@ -118,7 +118,6 @@ class MainActivity : AppCompatActivity(), TipoListener {
     }
 
     override fun getTipo(tipos: String) {
-        Toast.makeText(this, tipos, Toast.LENGTH_SHORT).show()
         trocaTela(tipos)
     }
 
