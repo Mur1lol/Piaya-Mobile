@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.piayaqrcode.R
 import com.example.piayaqrcode.entidades.FormularioResponse
 import com.example.piayaqrcode.fragments.*
+import com.example.piayaqrcode.listener.TipoListener
 import com.example.piayaqrcode.servicos.FormularioService
 import com.google.zxing.integration.android.IntentIntegrator
 import kotlinx.android.synthetic.main.activity_main.*
@@ -20,7 +21,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), TipoListener {
 
     lateinit var retrofit: Retrofit
     lateinit var service: FormularioService
@@ -32,10 +33,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val prefsTipo = getSharedPreferences("tipo", Context.MODE_PRIVATE)
-        val tipos = prefsTipo.getString("tipo", null)
+//        val tipos = prefsTipo.getString("tipo", null)
 
-        val prefsInfo = getSharedPreferences("info", Context.MODE_PRIVATE)
-        val infos = prefsInfo.getString("info", null)
+//        val prefsInfo = getSharedPreferences("info", Context.MODE_PRIVATE)
+//        val infos = prefsInfo.getString("info", null)
 
 //        configuraRetrofit()
 //        cadastraResposta()
@@ -48,17 +49,6 @@ class MainActivity : AppCompatActivity() {
                 .commit()
         }
 
-//        when (tipos) {
-//            "Lixo" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Info_LixoFragment()).commit()
-//            "Luz" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Info_LuzFragment()).commit()
-//            "Agua" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Info_AguaFragment()).commit()
-//            "Outro" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, AcontecimentoFragment()).commit()
-//        }
-//
-//        if (tipos!= null && infos!=null) {
-//            supportFragmentManager.beginTransaction().replace(R.id.framezz, AcontecimentoFragment()).commit()
-//        }
-
         bt1.setOnClickListener {
             supportFragmentManager
                 .beginTransaction()
@@ -68,11 +58,8 @@ class MainActivity : AppCompatActivity() {
 
         bt2.setOnClickListener {
             val tipos = prefsTipo.getString("tipo", null)
-            when (tipos) {
-                "Lixo" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Info_LixoFragment()).commit()
-                "Luz" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Info_LuzFragment()).commit()
-                "Agua" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Info_AguaFragment()).commit()
-                "Outro" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, AcontecimentoFragment()).commit()
+            if(tipos!= null) {
+                trocaTela(tipos)
             }
         }
 
@@ -90,7 +77,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun configuraRetrofit() {
-
         //https://localhost:44375/api/Formularios
         retrofit = Retrofit.Builder()
             .baseUrl("https://localhost:44375/")
@@ -126,8 +112,26 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun alert(msg: String) {
+    fun alert(msg: String) {
         Toast.makeText(applicationContext, msg, Toast.LENGTH_LONG).show()
-        txtLocal.text = msg
+        txtLocal.setText(msg)
+    }
+
+    override fun getTipo(tipos: String) {
+        Toast.makeText(this, tipos, Toast.LENGTH_SHORT).show()
+        trocaTela(tipos)
+    }
+
+    override fun getInfo() {
+        supportFragmentManager.beginTransaction().replace(R.id.framezz, AcontecimentoFragment()).commit()
+    }
+
+    fun trocaTela(tipos: String) {
+        when (tipos) {
+            "Lixo" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Info_LixoFragment()).commit()
+            "Luz" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Info_LuzFragment()).commit()
+            "Agua" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Info_AguaFragment()).commit()
+            "Outro" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, AcontecimentoFragment()).commit()
+        }
     }
 }

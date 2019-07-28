@@ -10,8 +10,20 @@ import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import com.example.piayaqrcode.R
+import com.example.piayaqrcode.listener.TipoListener
 
 class Info_LuzFragment : Fragment() {
+
+    lateinit var mListener: TipoListener
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        if (context is TipoListener) {
+            mListener = context
+        } else {
+            throw RuntimeException(context!!.toString() + " must implement InteractionListener")
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -39,14 +51,17 @@ class Info_LuzFragment : Fragment() {
                 R.id.radioAcesa -> { //abrir AcontecimentoFragment
                     edInfo.putString("info", "Acesa")
                     edInfo.apply()
+                    mListener.getInfo()
                 }
                 R.id.radioAr -> { //abrir AcontecimentoFragment
                     edInfo.putString("info", "Ar")
                     edInfo.apply()
+                    mListener.getInfo()
                 }
                 R.id.radioOutroLuz -> { //abrir AcontecimentoFragment
                     edInfo.putString("info", "Outro-Luz")
                     edInfo.apply()
+                    mListener.getInfo()
                 }
             }
         }

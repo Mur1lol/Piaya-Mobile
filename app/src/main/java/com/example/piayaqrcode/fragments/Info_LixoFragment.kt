@@ -11,9 +11,21 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 
 import com.example.piayaqrcode.R
+import com.example.piayaqrcode.listener.TipoListener
 import kotlinx.android.synthetic.main.fragment_info_lixo.*
 
 class Info_LixoFragment : Fragment() {
+
+    lateinit var mListener: TipoListener
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        if (context is TipoListener) {
+            mListener = context
+        } else {
+            throw RuntimeException(context!!.toString() + " must implement InteractionListener")
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -49,26 +61,32 @@ class Info_LixoFragment : Fragment() {
                 R.id.radioPapel -> { //abrir AcontecimentoFragment
                     edInfo.putString("info", "Papel")
                     edInfo.apply()
+                    mListener.getInfo()
                 }
                 R.id.radioReciclavel -> { //abrir AcontecimentoFragment
                     edInfo.putString("info", "Reciclavel")
                     edInfo.apply()
+                    mListener.getInfo()
                 }
                 R.id.radioComum -> { //abrir AcontecimentoFragment
                     edInfo.putString("info", "Comum")
                     edInfo.apply()
+                    mListener.getInfo()
                 }
                 R.id.radioInfectante -> { //abrir AcontecimentoFragment
                     edInfo.putString("info", "Infectante")
                     edInfo.apply()
+                    mListener.getInfo()
                 }
                 R.id.radioQuimico -> { //abrir AcontecimentoFragment
                     edInfo.putString("info", "Quimico")
                     edInfo.apply()
+                    mListener.getInfo()
                 }
                 R.id.radioPerfurocortante -> { //abrir AcontecimentoFragment
                     edInfo.putString("info", "Perfurocortante")
                     edInfo.apply()
+                    mListener.getInfo()
                 }
             }
         }

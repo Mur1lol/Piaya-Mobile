@@ -16,15 +16,19 @@
             android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
             android:textColor="@android:color/black" android:textStyle="bold" android:textSize="24sp"
             android:gravity="center"/>
-    <TextView
+    <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/txtLocal" android:textColor="@android:color/black"
-            android:textSize="24sp"
-            android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginRight="16dp" android:gravity="center" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toEndOf="@+id/local"
-            android:layout_marginStart="16dp" android:layout_marginLeft="16dp"/>
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/txtLocal"
+            android:hint="Utilizar Leitor QR Code"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="16dp"
+            android:drawableRight="@drawable/ic_place_black_24dp"
+            android:clickable="false" app:layout_constraintStart_toEndOf="@+id/local" android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp" app:layout_constraintTop_toTopOf="parent" android:enabled="false"
+            android:layout_marginTop="3dp"/>
     <FrameLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"

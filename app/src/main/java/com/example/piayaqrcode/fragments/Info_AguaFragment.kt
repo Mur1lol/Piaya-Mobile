@@ -11,9 +11,21 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 
 import com.example.piayaqrcode.R
+import com.example.piayaqrcode.listener.TipoListener
 import kotlinx.android.synthetic.main.fragment_info_agua.*
 
 class Info_AguaFragment : Fragment() {
+
+    lateinit var mListener: TipoListener
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        if (context is TipoListener) {
+            mListener = context
+        } else {
+            throw RuntimeException(context!!.toString() + " must implement InteractionListener")
+        }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -41,14 +53,17 @@ class Info_AguaFragment : Fragment() {
                 R.id.radioEntupimento -> { //abrir AcontecimentoFragment
                     edInfo.putString("info", "Entupimento")
                     edInfo.apply()
+                    mListener.getInfo()
                 }
                 R.id.radioTorneira -> { //abrir AcontecimentoFragment
                     edInfo.putString("info", "Torneira")
                     edInfo.apply()
+                    mListener.getInfo()
                 }
                 R.id.radioOutroAgua -> { //abrir AcontecimentoFragment
                     edInfo.putString("info", "Outro-Agua")
                     edInfo.apply()
+                    mListener.getInfo()
                 }
             }
         }
