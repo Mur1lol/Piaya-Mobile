@@ -164,7 +164,6 @@ class MainActivity : AppCompatActivity(), TipoListener {
         edInfo.apply()
 
         txtLocal.setText("")
-        txtAcontecimento.setText("")
 
         bt3.visibility = View.INVISIBLE
     }
