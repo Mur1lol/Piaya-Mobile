@@ -24,4 +24,29 @@
     <string name="digiteAqui">Digite aqui...</string>
     <string name="lugar">Lugar</string>
     <string name="qr">Leitor QR CODE</string>
+
+    <string-array name="locais">
+        <item>Sala 1</item>
+        <item>Sala 2</item>
+        <item>Sala 3</item>
+        <item>Sala 4</item>
+        <item>Sala 5</item>
+        <item>Sala 6</item>
+        <item>Sala 7</item>
+        <item>Sala 8</item>
+        <item>Sala 9</item>
+        <item>Sala 10</item>
+        <item>Sala 11</item>
+        <item>Sala 12</item>
+        <item>Laboratório 1 - Informática</item>
+        <item>Laboratório 2 - Informática</item>
+        <item>Laboratório 3 - Informática</item>
+        <item>Laboratório 4 - Informática</item>
+        <item>Laboratório 5 - Informática</item>
+        <item>Laboratório Biologia</item>
+        <item>Laboratório Química</item>
+        <item>Laboratório Física</item>
+    </string-array>
+    <string name="invalido">Local Inválido!</string>
+    <string name="utilizarQRCode">Utilizar Leitor QR Code</string>
 </resources>

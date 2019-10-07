@@ -18,10 +18,6 @@ class TipoFragment : Fragment() {
 
     lateinit var mListener: TipoListener
 
-    fun sentString() {
-        mListener.getTipo("Murilo")
-    }
-
     override fun onAttach(context: Context?) {
         super.onAttach(context)
         if (context is TipoListener) {
@@ -40,7 +36,6 @@ class TipoFragment : Fragment() {
         val radioLixo = view.findViewById(R.id.radioLixo) as RadioButton
         val radioLuz = view.findViewById(R.id.radioLuz) as RadioButton
         val radioAgua = view.findViewById(R.id.radioAgua) as RadioButton
-        val radioOutro = view.findViewById(R.id.radioOutro) as RadioButton
 
         val prefsTipo = this.activity!!.getSharedPreferences("tipo", Context.MODE_PRIVATE)
         var edTipo = prefsTipo.edit()
@@ -50,11 +45,9 @@ class TipoFragment : Fragment() {
             "Lixo" -> radioLixo.isChecked = true
             "Luz" -> radioLuz.isChecked = true
             "Agua" -> radioAgua.isChecked = true
-            "Outro" -> radioOutro.isChecked = true
         }
 
         radioGroup.setOnCheckedChangeListener { _, checkedId ->
-            // checkedId is the RadioButton selected
             when (checkedId) {
                 R.id.radioLixo -> { //abrir Info_LixoFragment
                     edTipo.putString("tipo", "Lixo")
@@ -70,11 +63,6 @@ class TipoFragment : Fragment() {
                     edTipo.putString("tipo", "Agua")
                     edTipo.apply()
                     mListener.getTipo("Agua")
-                }
-                R.id.radioOutro -> { //abrir AcontecimentoFragment
-                    edTipo.putString("tipo", "Outro")
-                    edTipo.apply()
-                    mListener.getTipo("Outro")
                 }
             }
         }

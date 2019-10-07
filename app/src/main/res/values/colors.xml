@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFEE56</color>
-    <color name="colorPrimaryDark">#FFE500</color>
+    <color name="colorPrimary">#5FD15D</color>
+    <color name="colorPrimaryDark">#479E46</color>
     <color name="colorAccent">#000000</color>
+    <color name="background">#CCFFB8</color>
+    <color name="card_background">#D8FDCB</color>
+    <color name="ic_launcher_background">#FFD62F</color>
+    <!--#FFEE56  #FFE500-->
 </resources>

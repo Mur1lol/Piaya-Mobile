@@ -4,11 +4,11 @@
                                    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                                    android:layout_height="wrap_content" app:cardCornerRadius="25dp"
                                    android:layout_margin="5dp"
-                                   app:cardBackgroundColor="#FFEE56" app:cardElevation="5dp">
+                                   app:cardBackgroundColor="@color/card_background" app:cardElevation="5dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
         <TextView
                 android:text="@string/tipo"
@@ -47,11 +47,6 @@
                     android:text="@string/problema"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/radioAgua" android:layout_weight="1"
-                    android:layout_margin="1dp" android:background="@drawable/border_button"/>
-            <RadioButton
-                    android:text="@string/outro"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/radioOutro" android:layout_weight="1"
                     android:layout_margin="1dp" android:background="@drawable/border_button"/>
 
         </RadioGroup>

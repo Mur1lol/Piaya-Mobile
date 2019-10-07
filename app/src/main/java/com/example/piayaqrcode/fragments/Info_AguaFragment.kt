@@ -23,7 +23,7 @@ class Info_AguaFragment : Fragment() {
         if (context is TipoListener) {
             mListener = context
         } else {
-            throw RuntimeException(context!!.toString() + " must implement InteractionListener")
+            throw RuntimeException(context!!.toString() + " must implement InteractionListener") as Throwable
         }
     }
 
@@ -48,7 +48,6 @@ class Info_AguaFragment : Fragment() {
         }
 
         radioGroup.setOnCheckedChangeListener { _, checkedId ->
-            // checkedId is the RadioButton selected
             when (checkedId) {
                 R.id.radioEntupimento -> { //abrir AcontecimentoFragment
                     edInfo.putString("info", "Entupimento")

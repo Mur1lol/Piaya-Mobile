@@ -4,7 +4,7 @@
                                    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                                    android:layout_height="wrap_content" app:cardCornerRadius="25dp"
                                    app:cardElevation="5dp" android:layout_margin="5dp"
-                                   app:cardBackgroundColor="#FFEE56">
+                                   app:cardBackgroundColor="@color/card_background">
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -23,7 +23,7 @@
         <TextView
                 android:text="@string/obs"
                 android:layout_width="0dp"
-                android:layout_height="18dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
                 android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
@@ -31,11 +31,11 @@
                 android:id="@+id/obs" android:gravity="center"/>
         <EditText
                 android:layout_width="0dp"
-                android:layout_height="150dp"
-                android:inputType="textMultiLine"
+                android:layout_height="100dp"
+                android:inputType="textMultiLine|textCapSentences"
                 android:gravity="start|top"
                 android:ems="10"
-                android:id="@+id/editText"
+                android:id="@+id/txtAcontecimento"
                 app:layout_constraintTop_toBottomOf="@+id/obs" android:layout_marginTop="8dp"
                 android:layout_marginStart="24dp" app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginLeft="24dp" android:layout_marginEnd="24dp"
