@@ -1,8 +1,10 @@
 package com.example.piayaqrcode.entidades
 
 data class Formulario(
+    var problema: String,
     var tipo: String,
-    val local: String,
+    var lixeira: String?,
     var acontecimento: String,
-    var info: String
+    var local: String,
+    var status: Int
 )

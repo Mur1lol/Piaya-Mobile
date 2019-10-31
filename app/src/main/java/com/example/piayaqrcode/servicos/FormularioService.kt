@@ -1,30 +1,34 @@
 package com.example.piayaqrcode.servicos
 
-
 import com.example.piayaqrcode.entidades.FormularioResponse
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface FormularioService {
-    //@Headers("Accept: application/json")
-    //@FormUrlEncoded
-    @POST("api/Formularios")
+    @Headers("Accept: application/json")
+    @GET("server.php")
     fun getFormulario(
 
-        @Query("tipo")
-        tipo: String,
+    @Query("problema")
+    problema: String,
 
-        @Query("local")
-        local: String,
+    @Query("tipo")
+    tipo: String,
 
-        @Query("acontecimento")
-        acontecimento: String,
+    @Query("lixeira")
+    lixeira: String?,
 
-        @Query("info")
-        info: String?
+    @Query("acontecimento")
+    acontecimento: String,
+
+    @Query("local")
+    local: String,
+
+    @Query("status")
+    status: Int
 
     ): Call<FormularioResponse>
 }
+
+
+

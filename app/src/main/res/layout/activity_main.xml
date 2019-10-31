@@ -52,14 +52,14 @@
             android:layout_height="wrap_content" android:id="@+id/bt2"
             app:layout_constraintTop_toBottomOf="@+id/framezz" app:layout_constraintStart_toEndOf="@+id/bt1"
             android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/bt3" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/btCadastra" android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp" android:layout_marginTop="8dp"
             android:background="@drawable/border_button" android:visibility="invisible"/>
     <Button
             android:text="Enviar"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:id="@+id/bt3" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="28dp"
+            android:id="@+id/btCadastra" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="28dp"
             android:layout_marginRight="28dp"
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/framezz"
             android:background="@drawable/border_button" android:visibility="invisible"
@@ -75,7 +75,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             android:id="@+id/listDenuncias"
             android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/bt3"/>
+            app:layout_constraintTop_toBottomOf="@+id/btCadastra"/>
 
     <Button
             android:text="@string/qr"
