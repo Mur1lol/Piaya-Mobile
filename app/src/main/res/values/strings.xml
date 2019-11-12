@@ -25,26 +25,26 @@
     <string name="qr">QR CODE Reader</string>
 
     <string-array name="locais">
-        <item>Room 1</item>
-        <item>Room 2</item>
-        <item>Room 3</item>
-        <item>Room 4</item>
-        <item>Room 5</item>
-        <item>Room 6</item>
-        <item>Room 7</item>
-        <item>Room 8</item>
-        <item>Room 9</item>
-        <item>Room 10</item>
-        <item>Room 11</item>
-        <item>Room 12</item>
-        <item>Lab 1 - Informatics</item>
-        <item>Lab 2 - Informatics</item>
-        <item>Lab 3 - Informatics</item>
-        <item>Lab 4 - Informatics</item>
-        <item>Lab 5 - Informatics</item>
-        <item>Biology Laboratory</item>
-        <item>Chemical Laboratory</item>
-        <item>Physical Laboratory</item>
+        <item>Sala 01</item>
+        <item>Sala 02</item>
+        <item>Sala 03</item>
+        <item>Sala 04</item>
+        <item>Sala 05</item>
+        <item>Sala 06</item>
+        <item>Sala 07</item>
+        <item>Sala 08</item>
+        <item>Sala 09</item>
+        <item>Sala 10</item>
+        <item>Sala 11</item>
+        <item>Sala 12</item>
+        <item>Laboratorio 01 - Informatica</item>
+        <item>Laboratorio 02 - Informatica</item>
+        <item>Laboratorio 03 - Informatica</item>
+        <item>Laboratorio 04 - Informatica</item>
+        <item>Laboratorio 05 - Informatica</item>
+        <item>Laboratorio Biologia</item>
+        <item>Laboratorio Quimica</item>
+        <item>Laboratorio Fisica</item>
     </string-array>
     <string name="invalido">Invalid Location!</string>
     <string name="utilizarQRCode">Use QR Code Reader</string>

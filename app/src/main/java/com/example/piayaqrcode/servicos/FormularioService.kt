@@ -6,7 +6,7 @@ import retrofit2.http.*
 
 interface FormularioService {
     @Headers("Accept: application/json")
-    @GET("server.php")
+    @GET("cadastra.json.php")
     fun getFormulario(
 
     @Query("problema")

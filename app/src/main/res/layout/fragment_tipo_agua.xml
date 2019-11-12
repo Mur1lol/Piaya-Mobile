@@ -27,7 +27,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
                 app:layout_constraintEnd_toEndOf="parent" android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp" android:id="@+id/radioGroup"
+                android:layout_marginStart="8dp" android:id="@+id/radioGroupAgua"
                 app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/problemasAgua">
             <RadioButton
@@ -41,9 +41,14 @@
                     android:layout_height="wrap_content" android:id="@+id/radioTorneira" android:layout_weight="1"
                     android:layout_margin="1dp" android:background="@drawable/border_button"/>
             <RadioButton
-                    android:text="@string/outro"
+                    android:text="Torneira com defeito"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/radioOutroAgua" android:layout_weight="1"
+                    android:layout_height="wrap_content" android:id="@+id/radioTorneiraDefeito" android:layout_weight="1"
+                    android:layout_margin="1dp" android:background="@drawable/border_button"/>
+            <RadioButton
+                    android:text="Falta de água"
+                    android:layout_width="386dp"
+                    android:layout_height="wrap_content" android:id="@+id/radioFaltaAgua" android:layout_weight="1"
                     android:layout_margin="1dp" android:background="@drawable/border_button"/>
         </RadioGroup>
     </androidx.constraintlayout.widget.ConstraintLayout>

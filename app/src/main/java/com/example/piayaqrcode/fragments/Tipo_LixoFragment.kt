@@ -12,9 +12,8 @@ import android.widget.RadioGroup
 
 import com.example.piayaqrcode.R
 import com.example.piayaqrcode.listener.TipoListener
-import kotlinx.android.synthetic.main.fragment_info_lixo.*
 
-class Info_LixoFragment : Fragment() {
+class Tipo_LixoFragment : Fragment() {
 
     lateinit var mListener: TipoListener
 
@@ -28,12 +27,9 @@ class Info_LixoFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-
-        val view = inflater.inflate(R.layout.fragment_info_lixo, container, false)
+        val view = inflater.inflate(R.layout.fragment_tipo_lixo, container, false)
 
         val radioGroupTipo = view.findViewById(R.id.radioGroupTipo) as RadioGroup
-        //val radioGroup = view.findViewById(R.id.radioGroup) as RadioGroup
 
         val radioPapel = view.findViewById(R.id.radioPapel) as RadioButton
         val radioReciclavel = view.findViewById(R.id.radioReciclavel) as RadioButton
@@ -42,11 +38,11 @@ class Info_LixoFragment : Fragment() {
         val radioQuimico = view.findViewById(R.id.radioQuimico) as RadioButton
         val radioPerfurocortante = view.findViewById(R.id.radioPerfurocortante) as RadioButton
 
-        val prefsInfo = this.activity!!.getSharedPreferences("info", Context.MODE_PRIVATE)
-        var edInfo = prefsInfo.edit()
-        val infos = prefsInfo.getString("info", null)
+        val prefsTipo = this.activity!!.getSharedPreferences("tipo", Context.MODE_PRIVATE)
+        var edTipo = prefsTipo.edit()
+        val tipos = prefsTipo.getString("tipo", null)
 
-        when (infos) {
+        when (tipos) {
             "Papel" -> radioPapel.isChecked = true
             "Reciclavel" -> radioReciclavel.isChecked = true
             "Comum" -> radioComum.isChecked = true
@@ -59,51 +55,37 @@ class Info_LixoFragment : Fragment() {
             // checkedId is the RadioButton selected
             when (checkedId) {
                 R.id.radioPapel -> { //abrir AcontecimentoFragment
-                    edInfo.putString("info", "Papel")
-                    edInfo.apply()
-                    mListener.getInfo()
+                    edTipo.putString("tipo", "Papel")
+                    edTipo.apply()
+                    mListener.getLixeira()
                 }
                 R.id.radioReciclavel -> { //abrir AcontecimentoFragment
-                    edInfo.putString("info", "Reciclavel")
-                    edInfo.apply()
-                    mListener.getInfo()
+                    edTipo.putString("tipo", "Reciclavel")
+                    edTipo.apply()
+                    mListener.getLixeira()
                 }
                 R.id.radioComum -> { //abrir AcontecimentoFragment
-                    edInfo.putString("info", "Comum")
-                    edInfo.apply()
-                    mListener.getInfo()
+                    edTipo.putString("tipo", "Comum")
+                    edTipo.apply()
+                    mListener.getLixeira()
                 }
                 R.id.radioInfectante -> { //abrir AcontecimentoFragment
-                    edInfo.putString("info", "Infectante")
-                    edInfo.apply()
-                    mListener.getInfo()
+                    edTipo.putString("tipo", "Infectante")
+                    edTipo.apply()
+                    mListener.getLixeira()
                 }
                 R.id.radioQuimico -> { //abrir AcontecimentoFragment
-                    edInfo.putString("info", "Quimico")
-                    edInfo.apply()
-                    mListener.getInfo()
+                    edTipo.putString("tipo", "Quimico")
+                    edTipo.apply()
+                    mListener.getLixeira()
                 }
                 R.id.radioPerfurocortante -> { //abrir AcontecimentoFragment
-                    edInfo.putString("info", "Perfurocortante")
-                    edInfo.apply()
-                    mListener.getInfo()
+                    edTipo.putString("tipo", "Perfurocortante")
+                    edTipo.apply()
+                    mListener.getLixeira()
                 }
             }
         }
-
-//        radioGroup.setOnCheckedChangeListener { _, checkedId ->
-//            // checkedId is the RadioButton selected
-//            when (checkedId) {
-//                R.id.radioLixeiraReciclavel -> { //abrir AcontecimentoFragment
-////                    edInfo.putString("info", "Entupimento")
-////                    edInfo.apply()
-//                }
-//                R.id.radioLixeiraNaoReciclavel -> { //abrir AcontecimentoFragment
-////                    edInfo.putString("info", "Torneira")
-////                    edInfo.apply()
-//                }
-//            }
-//        }
 
         return view
     }
