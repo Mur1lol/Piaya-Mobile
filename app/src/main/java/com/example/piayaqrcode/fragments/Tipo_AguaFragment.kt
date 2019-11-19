@@ -50,22 +50,22 @@ class Tipo_AguaFragment : Fragment() {
 
         radioGroup.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
-                R.id.radioEntupimento -> { //abrir AcontecimentoFragment
+                R.id.radioEntupimento -> {  
                     edTipo.putString("tipo", "Entupimento")
                     edTipo.apply()
                     mListener.getTipo()
                 }
-                R.id.radioTorneira -> { //abrir AcontecimentoFragment
+                R.id.radioTorneira -> {  
                     edTipo.putString("tipo", "Torneira aberta")
                     edTipo.apply()
                     mListener.getTipo()
                 }
-                R.id.radioTorneiraDefeito -> { //abrir AcontecimentoFragment
+                R.id.radioTorneiraDefeito -> {  
                     edTipo.putString("tipo", "Torneiras com defeito")
                     edTipo.apply()
                     mListener.getTipo()
                 }
-                R.id.radioFaltaAgua -> { //abrir AcontecimentoFragment
+                R.id.radioFaltaAgua -> {  
                     edTipo.putString("tipo", "Falta de agua")
                     edTipo.apply()
                     mListener.getTipo()

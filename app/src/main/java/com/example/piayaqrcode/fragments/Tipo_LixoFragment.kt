@@ -54,32 +54,32 @@ class Tipo_LixoFragment : Fragment() {
         radioGroupTipo.setOnCheckedChangeListener { _, checkedId ->
             // checkedId is the RadioButton selected
             when (checkedId) {
-                R.id.radioPapel -> { //abrir AcontecimentoFragment
+                R.id.radioPapel -> {  
                     edTipo.putString("tipo", "Papel")
                     edTipo.apply()
                     mListener.getLixeira()
                 }
-                R.id.radioReciclavel -> { //abrir AcontecimentoFragment
+                R.id.radioReciclavel -> {  
                     edTipo.putString("tipo", "Reciclavel")
                     edTipo.apply()
                     mListener.getLixeira()
                 }
-                R.id.radioComum -> { //abrir AcontecimentoFragment
+                R.id.radioComum -> {  
                     edTipo.putString("tipo", "Comum")
                     edTipo.apply()
                     mListener.getLixeira()
                 }
-                R.id.radioInfectante -> { //abrir AcontecimentoFragment
+                R.id.radioInfectante -> {  
                     edTipo.putString("tipo", "Infectante")
                     edTipo.apply()
                     mListener.getLixeira()
                 }
-                R.id.radioQuimico -> { //abrir AcontecimentoFragment
+                R.id.radioQuimico -> {  
                     edTipo.putString("tipo", "Quimico")
                     edTipo.apply()
                     mListener.getLixeira()
                 }
-                R.id.radioPerfurocortante -> { //abrir AcontecimentoFragment
+                R.id.radioPerfurocortante -> {  
                     edTipo.putString("tipo", "Perfurocortante")
                     edTipo.apply()
                     mListener.getLixeira()

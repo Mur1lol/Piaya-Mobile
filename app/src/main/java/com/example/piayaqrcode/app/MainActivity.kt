@@ -4,7 +4,6 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -17,9 +16,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import android.widget.ArrayAdapter
-import com.example.piayaqrcode.entidades.Formulario
 import com.example.piayaqrcode.entidades.FormularioResponse
-import kotlinx.android.synthetic.main.fragment_acontecimento.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -70,9 +67,6 @@ class MainActivity : AppCompatActivity(), TipoListener {
 
             val local = txtLocal.text.toString()
 
-            val denuncia = Formulario(problema,tipo, lixeira, acontecimento, local, 0)
-            Log.e("ABC", denuncia.toString())
-
             if (local == "") {
                 Toast.makeText(this, "Indicar o Local", Toast.LENGTH_SHORT).show()
             }
@@ -105,26 +99,7 @@ class MainActivity : AppCompatActivity(), TipoListener {
 
         btVoltar.setOnClickListener {
             supportFragmentManager.beginTransaction().replace(R.id.framezz, ProblemaFragment()).commit()
-            val prefsProblema = getSharedPreferences("problema", Context.MODE_PRIVATE)
-            val edProblema = prefsProblema.edit()
-
-            val prefsTipo = getSharedPreferences("tipo", Context.MODE_PRIVATE)
-            val edTipo = prefsTipo.edit()
-
-            val prefsLixeira = getSharedPreferences("lixeira", Context.MODE_PRIVATE)
-            val edLixeira = prefsLixeira.edit()
-
-            edProblema.putString("problema", "")
-            edProblema.apply()
-
-            edTipo.putString("tipo", "")
-            edTipo.apply()
-
-            edLixeira.putString("lixeira", "--")
-            edLixeira.apply()
-
-            btVoltar.visibility = View.INVISIBLE
-            btCadastra.visibility = View.INVISIBLE
+            limpaCampos()
         }
 
         btScan.setOnClickListener {
@@ -136,46 +111,16 @@ class MainActivity : AppCompatActivity(), TipoListener {
         }
     }
 
-    private fun limpaCampos() {
-        val prefsProblema = getSharedPreferences("problema", Context.MODE_PRIVATE)
-        val edProblema = prefsProblema.edit()
-
-        val prefsTipo = getSharedPreferences("tipo", Context.MODE_PRIVATE)
-        val edTipo = prefsTipo.edit()
-
-        val prefsLixeira = getSharedPreferences("lixeira", Context.MODE_PRIVATE)
-        val edLixeira = prefsLixeira.edit()
-
-//        val prefsAcontecimento = getSharedPreferences("acontecimento", Context.MODE_PRIVATE)
-//        var edAcontecimento = prefsAcontecimento.edit()
-//        edAcontecimento.putString("acontecimento", "")
-//        edAcontecimento.apply()
-
-        edProblema.putString("problema", "")
-        edProblema.apply()
-
-        edTipo.putString("tipo", "")
-        edTipo.apply()
-
-        edLixeira.putString("lixeira", "--")
-        edLixeira.apply()
-
-        txtLocal.setText("")
-
-        btVoltar.visibility = View.INVISIBLE
-        btCadastra.visibility = View.INVISIBLE
-    }
-
     private fun configuraRetrofit() {
         //http://10.1.1.105:8000/tcc/js/cadastra.json.php
         retrofit = Retrofit.Builder()
-            .baseUrl("http://10.1.1.104:8000/tcc/js/")
+            .baseUrl("http://10.1.1.105:8000/tcc/js/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         service = retrofit.create(FormularioService::class.java)
     }
 
-    private fun cadastraResposta(problema:String?, tipo: String?, lixeira: String?, acontecimento: String?, local: String) {
+    private fun cadastraResposta(problema:String?, tipo: String?, lixeira: String?, acontecimento: String, local: String) {
         service.getFormulario(problema,tipo,lixeira,acontecimento,local, 0).enqueue(object: Callback<FormularioResponse> {
             override fun onFailure(call: Call<FormularioResponse>, t: Throwable) {
                 Toast.makeText(this@MainActivity, "Falha ao conectar ao servidor!", Toast.LENGTH_SHORT).show()
@@ -189,13 +134,39 @@ class MainActivity : AppCompatActivity(), TipoListener {
         })
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        val intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+    private fun limpaCampos() {
+        val prefsProblema = getSharedPreferences("problema", Context.MODE_PRIVATE)
+        val edProblema = prefsProblema.edit()
 
-        if (intentResult.contents != null) {
-            alert(intentResult.contents.toString())
-        } else {
-            alert("Scan cancelado")
+        val prefsTipo = getSharedPreferences("tipo", Context.MODE_PRIVATE)
+        val edTipo = prefsTipo.edit()
+
+        val prefsLixeira = getSharedPreferences("lixeira", Context.MODE_PRIVATE)
+        val edLixeira = prefsLixeira.edit()
+
+        edProblema.putString("problema", "")
+        edProblema.apply()
+
+        edTipo.putString("tipo", "")
+        edTipo.apply()
+
+        edLixeira.putString("lixeira", "--")
+        edLixeira.apply()
+
+        txtLocal.setText("")
+        txtAcontecimento.setText("")
+
+        btVoltar.visibility = View.INVISIBLE
+        btCadastra.visibility = View.INVISIBLE
+        cardView.visibility = View.GONE
+        framezz.visibility = View.VISIBLE
+    }
+
+    private fun trocaTela(problemas: String) {
+        when (problemas) {
+            "Descarte incorreto de lixo ou residuos" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Tipo_LixoFragment()).commit()
+            "Uso inadequado da luz" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Tipo_LuzFragment()).commit()
+            "Problemas relacionados a agua" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Tipo_AguaFragment()).commit()
         }
     }
 
@@ -222,25 +193,28 @@ class MainActivity : AppCompatActivity(), TipoListener {
         }
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        val intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+
+        if (intentResult.contents != null) {
+            alert(intentResult.contents.toString())
+        } else {
+            alert("Scan cancelado")
+        }
+    }
+
     override fun getProblema(problemas: String) {
         trocaTela(problemas)
         btVoltar.visibility = View.VISIBLE
     }
 
     override fun getTipo() {
-        supportFragmentManager.beginTransaction().replace(R.id.framezz, AcontecimentoFragment()).commit()
         btCadastra.visibility = View.VISIBLE
+        cardView.visibility = View.VISIBLE
+        framezz.visibility = View.GONE
     }
 
     override fun getLixeira() {
         supportFragmentManager.beginTransaction().replace(R.id.framezz, LixeiraFragment()).commit()
-    }
-
-    private fun trocaTela(problemas: String) {
-        when (problemas) {
-            "Descarte incorreto de lixo ou residuos" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Tipo_LixoFragment()).commit()
-            "Uso inadequado da luz" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Tipo_LuzFragment()).commit()
-            "Problemas relacionados a agua" -> supportFragmentManager.beginTransaction().replace(R.id.framezz, Tipo_AguaFragment()).commit()
-        }
     }
 }

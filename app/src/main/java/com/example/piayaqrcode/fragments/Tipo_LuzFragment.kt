@@ -48,17 +48,17 @@ class Tipo_LuzFragment : Fragment() {
         radioGroup.setOnCheckedChangeListener { _, checkedId ->
             // checkedId is the RadioButton selected
             when (checkedId) {
-                R.id.radioLuzAcesa -> { //abrir AcontecimentoFragment
+                R.id.radioLuzAcesa -> {  
                     edTipo.putString("tipo", "Acesa")
                     edTipo.apply()
                     mListener.getTipo()
                 }
-                R.id.radioArCondicionado -> { //abrir AcontecimentoFragment
+                R.id.radioArCondicionado -> {  
                     edTipo.putString("tipo", "Ar condicionado ligado em sala vazia")
                     edTipo.apply()
                     mListener.getTipo()
                 }
-                R.id.radioComputadorLigado -> { //abrir AcontecimentoFragment
+                R.id.radioComputadorLigado -> {  
                     edTipo.putString("tipo", "Computadores ligados com a sala vazia")
                     edTipo.apply()
                     mListener.getTipo()
