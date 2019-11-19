@@ -1,7 +1,7 @@
 package com.example.piayaqrcode.listener
 
 interface TipoListener {
-    fun getProblema(tipos: String)
+    fun getProblema(problemas: String)
     fun getTipo()
     fun getLixeira()
 }

@@ -22,7 +22,7 @@ class Tipo_AguaFragment : Fragment() {
         if (context is TipoListener) {
             mListener = context
         } else {
-            throw RuntimeException(context!!.toString() + " must implement InteractionListener") as Throwable
+            throw RuntimeException(context!!.toString() + " must implement InteractionListener")
         }
     }
 

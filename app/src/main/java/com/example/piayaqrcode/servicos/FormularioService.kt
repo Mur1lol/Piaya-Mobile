@@ -10,16 +10,16 @@ interface FormularioService {
     fun getFormulario(
 
     @Query("problema")
-    problema: String,
+    problema: String?,
 
     @Query("tipo")
-    tipo: String,
+    tipo: String?,
 
     @Query("lixeira")
     lixeira: String?,
 
     @Query("acontecimento")
-    acontecimento: String,
+    acontecimento: String?,
 
     @Query("local")
     local: String,

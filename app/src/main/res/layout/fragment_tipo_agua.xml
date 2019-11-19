@@ -41,12 +41,13 @@
                     android:layout_height="wrap_content" android:id="@+id/radioTorneira" android:layout_weight="1"
                     android:layout_margin="1dp" android:background="@drawable/border_button"/>
             <RadioButton
-                    android:text="Torneira com defeito"
+                    android:text="@string/torneiraQuebrada"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/radioTorneiraDefeito" android:layout_weight="1"
+                    android:layout_height="wrap_content" android:id="@+id/radioTorneiraDefeito"
+                    android:layout_weight="1"
                     android:layout_margin="1dp" android:background="@drawable/border_button"/>
             <RadioButton
-                    android:text="Falta de água"
+                    android:text="@string/faltaAgua"
                     android:layout_width="386dp"
                     android:layout_height="wrap_content" android:id="@+id/radioFaltaAgua" android:layout_weight="1"
                     android:layout_margin="1dp" android:background="@drawable/border_button"/>

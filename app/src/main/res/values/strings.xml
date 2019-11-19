@@ -48,5 +48,10 @@
     </string-array>
     <string name="invalido">Invalid Location!</string>
     <string name="utilizarQRCode">Use QR Code Reader</string>
+    <string name="enviar">Send</string>
+    <string name="voltar">Back</string>
+    <string name="torneiraQuebrada">Defective tap</string>
+    <string name="faltaAgua">Lack of water</string>
+    <string name="computadorLigado">Computers connected with empty room</string>
 
 </resources>

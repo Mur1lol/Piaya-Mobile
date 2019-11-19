@@ -38,7 +38,7 @@
                     android:layout_height="wrap_content" android:id="@+id/radioArCondicionado" android:layout_weight="1"
                     android:layout_margin="1dp" android:background="@drawable/border_button"/>
             <RadioButton
-                    android:text="Computadores ligados com a sala vazia"
+                    android:text="@string/computadorLigado"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/radioComputadorLigado"
                     android:layout_weight="1"

@@ -49,4 +49,9 @@
     </string-array>
     <string name="invalido">Local Inválido!</string>
     <string name="utilizarQRCode">Utilizar Leitor QR Code</string>
+    <string name="enviar">Enviar</string>
+    <string name="voltar">Voltar</string>
+    <string name="torneiraQuebrada">Torneira com defeito</string>
+    <string name="faltaAgua">Falta de água</string>
+    <string name="computadorLigado">Computadores ligados com a sala vazia</string>
 </resources>
