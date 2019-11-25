@@ -49,7 +49,7 @@ class Tipo_LuzFragment : Fragment() {
             // checkedId is the RadioButton selected
             when (checkedId) {
                 R.id.radioLuzAcesa -> {  
-                    edTipo.putString("tipo", "Acesa")
+                    edTipo.putString("tipo", "Luz acesa em ambiente vazio")
                     edTipo.apply()
                     mListener.getTipo()
                 }
