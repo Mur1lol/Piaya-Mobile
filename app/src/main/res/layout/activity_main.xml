@@ -86,7 +86,8 @@
                     android:layout_marginLeft="24dp" android:layout_marginEnd="24dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginRight="24dp" android:layout_marginBottom="8dp"
-                    app:layout_constraintBottom_toBottomOf="parent" android:hint="@string/digiteAqui"/>
+                    app:layout_constraintBottom_toBottomOf="parent" android:hint="@string/digiteAqui"
+                    android:maxLength="100"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
